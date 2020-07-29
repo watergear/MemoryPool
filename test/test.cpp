@@ -137,6 +137,7 @@ int main()
   std::cout << "MemoryPool still has a lot of uses though. Any type of tree"
             " and when you have multiple linked lists are some examples (they"
             " can all share the same memory pool).\n";
+  std::cout << "max size of MemoryPool is " << MemoryPool<int>().max_size() << "\n";
 
   return 0;
 }

@@ -158,7 +158,7 @@ MemoryPool<T, BlockSize>::max_size()
 const noexcept
 {
   size_type maxBlocks = -1 / BlockSize;
-  return (BlockSize - sizeof(data_pointer_)) / sizeof(slot_type_) * maxBlocks;
+  return (BlockSize - sizeof(slot_pointer_)) / sizeof(slot_type_) * maxBlocks;
 }
 
 
