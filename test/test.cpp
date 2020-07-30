@@ -110,28 +110,28 @@ int main()
   std::cout << (((double)clock() - start) / CLOCKS_PER_SEC) << "\n";
 
   /* Use MemoryPool */
-  std::vector<int, MemoryPool<int>> vectorPool;
-  start = clock();
-  for (int j = 0; j < REPS; j++)
-  {
-    assert(vectorPool.empty());
-    for (int i = 0; i < ELEMS / 4; i++) {
-      // Unroll to time the actual code and not the loop
-      vectorPool.push_back(i);
-      vectorPool.push_back(i);
-      vectorPool.push_back(i);
-      vectorPool.push_back(i);
-    }
-    for (int i = 0; i < ELEMS / 4; i++) {
-      // Unroll to time the actual code and not the loop
-      vectorPool.pop_back();
-      vectorPool.pop_back();
-      vectorPool.pop_back();
-      vectorPool.pop_back();
-    }
-  }
-  std::cout << "MemoryPool Allocator Vector Time: ";
-  std::cout << (((double)clock() - start) / CLOCKS_PER_SEC) << "\n";
+  // std::vector<int, MemoryPool<int>> vectorPool;
+  // start = clock();
+  // for (int j = 0; j < REPS; j++)
+  // {
+  //   assert(vectorPool.empty());
+  //   for (int i = 0; i < ELEMS / 4; i++) {
+  //     // Unroll to time the actual code and not the loop
+  //     vectorPool.push_back(i);
+  //     vectorPool.push_back(i);
+  //     vectorPool.push_back(i);
+  //     vectorPool.push_back(i);
+  //   }
+  //   for (int i = 0; i < ELEMS / 4; i++) {
+  //     // Unroll to time the actual code and not the loop
+  //     vectorPool.pop_back();
+  //     vectorPool.pop_back();
+  //     vectorPool.pop_back();
+  //     vectorPool.pop_back();
+  //   }
+  // }
+  // std::cout << "MemoryPool Allocator Vector Time: ";
+  // std::cout << (((double)clock() - start) / CLOCKS_PER_SEC) << "\n";
 
   std::cout << "The vector implementation will probably be faster.\n\n";
   std::cout << "MemoryPool still has a lot of uses though. Any type of tree"

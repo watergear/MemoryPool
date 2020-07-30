@@ -126,6 +126,7 @@ template <typename T, size_t BlockSize>
 inline typename MemoryPool<T, BlockSize>::pointer
 MemoryPool<T, BlockSize>::allocate(size_type n, const_pointer hint)
 {
+  assert(1 == n);
   if (freeSlots_ != nullptr) {
     pointer result = reinterpret_cast<pointer>(freeSlots_);
     freeSlots_ = freeSlots_->next;
@@ -144,6 +145,7 @@ template <typename T, size_t BlockSize>
 inline void
 MemoryPool<T, BlockSize>::deallocate(pointer p, size_type n)
 {
+  assert(1 == n);
   if (p != nullptr) {
     reinterpret_cast<slot_pointer_>(p)->next = freeSlots_;
     freeSlots_ = reinterpret_cast<slot_pointer_>(p);
